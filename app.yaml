@@ -1,0 +1,12 @@
+runtime: python311  # or python310, depending on your environment
+
+entrypoint: gunicorn -b :$PORT main:app  # Replace 'main' with your .py filename
+
+instance_class: F1
+
+env_variables:
+  ENV: "production"
+
+handlers:
+- url: /.*
+  script: auto
